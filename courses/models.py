@@ -17,3 +17,10 @@ class Course(models.Model):
     updated_date = models.DateTimeField(auto_now=True)
     active = models.BooleanField(default=True)
     category = models.ForeignKey(Category, on_delete=models . SET_NULL, null=True)
+
+class Lesson(models.Model):
+    subject = models.CharField(max_length=100, null=False)
+    created_date = models.DateTimeField(auto_now_add=True)
+    updated_date = models.DateTimeField(auto_now=True)
+    active = models.BooleanField(default=True)
+    course = models.ForeignKey(Course, on_delete=models.CASCADE)
